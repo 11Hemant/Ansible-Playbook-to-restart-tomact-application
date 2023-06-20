@@ -3,7 +3,9 @@
 ## Step 1:Create a new file called restart_tomcat.yml and add the following code:
 ---
 - name: Restart Tomcat if new war file
-  hosts: your_tomcat_hosts
+  
+  hosts: our_tomcat_hosts
+  
   become: true
 
   tasks:
@@ -24,7 +26,7 @@
         state: restarted
 
 - name: Check if Tomcat process is up and running
-  hosts: your_tomcat_hosts
+  hosts: our_tomcat_hosts
   become: true
 
   tasks:
@@ -69,6 +71,10 @@ Restart the Tomcat service.
 Check if the Tomcat process is up and running.
 
 Print the top 10 running processes.
+
+Ensure that we have SSH access to the target hosts configured in your Ansible inventory file. 
+
+also set up and check passwordless SSH authentication between the Ansible control node and the target hosts.
 
 Ensure that we have SSH access to the target hosts configured in your Ansible inventory file. 
 
